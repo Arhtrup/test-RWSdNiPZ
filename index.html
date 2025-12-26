@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка изображений - Лабораторная работа №3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .info {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторная работа №3</h1>
+        <h2>Обработка изображений на Flask</h2>
+        
+        <div class="info">
+            <strong>Инструкция:</strong> Загрузите изображение и укажите угол поворота.
+            Приложение покажет результат и гистограммы цветов.
+        </div>
+        
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Выберите изображение:</label>
+                <input type="file" name="file" id="file" accept=".png,.jpg,.jpeg,.gif" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="angle">Угол поворота (градусы):</label>
+                <input type="number" name="angle" id="angle" value="45" min="0" max="360" required>
+            </div>
+            
+            <button type="submit">Обработать изображение</button>
+        </form>
+        
+        <div style="margin-top: 30px; text-align: center;">
+            <p><strong>Поддерживаемые форматы:</strong> PNG, JPG, JPEG, GIF</p>
+            <p><strong>API endpoint:</strong> <code>/process</code> (POST)</p>
+            <p><a href="/api/info">Информация об API</a> | <a href="/health">Проверка здоровья</a></p>
+        </div>
+    </div>
+</body>
+</html>
