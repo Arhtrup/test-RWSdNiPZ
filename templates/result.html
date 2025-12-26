@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Image Rotation Result</h1>
+    <p>Angle: {{ angle }}°</p>
+    <div>
+        <h3>Original Image</h3>
+        <img src="{{ original }}" width="400">
+        <h3>Rotated Image</h3>
+        <img src="{{ rotated }}" width="400">
+    </div>
+    <div>
+        <h3>Original Color Histogram</h3>
+        <img src="data:image/png;base64,{{ orig_hist }}" width="400">
+        <h3>Rotated Color Histogram</h3>
+        <img src="data:image/png;base64,{{ rotated_hist }}" width="400">
+    </div>
+    <br>
+    <a href="/">Try another image</a>
+</body>
+</html>
